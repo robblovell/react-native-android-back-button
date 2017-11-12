@@ -7,6 +7,12 @@ var listener = null
 var backButtonPressFunction = () => false
 
 class AndroidBackButton extends Component {
+  constructor(props) {
+    super(props)
+    if (props.onPress) {
+      backButtonPressFunction = props.onPress
+    }
+  }
   componentDidMount() {
     if (Platform.OS === "android") {
       AppState.addEventListener('change', state => {
