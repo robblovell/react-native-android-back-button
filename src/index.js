@@ -5,11 +5,11 @@ import { AppState, BackHandler, Platform } from "react-native"
 export default class AndroidBackButton extends Component {
   constructor(props) {
     super(props)
+    this.listener = null
     this.backButtonPressFunction = () => false
     if (props.onPress) {
       this.backButtonPressFunction = props.onPress
     }
-    this.listener = null
   }
   componentDidMount() {
     if (Platform.OS === "android") {
